@@ -12,16 +12,11 @@ def on_message(client, userdata, msg):
 
 client = mqtt.Client()
 
-# Spécifiez ici l'adresse IP ou le nom d'hôte de votre broker MQTT
-broker_address = "127.0.0.1"
+broker_address = "127.0.0.1" # Spécifiez ici l'adresse IP ou le nom d'hôte de votre broker MQTT
+topic = "mytopic" # Abonnement au topic
 
-# Connexion au broker MQTT
-client.connect(broker_address)
-
-# Abonnement au topic
-topic = "mytopic"
+client.connect(broker_address) # Connexion au broker MQTT
 client.subscribe(topic)
-
 client.on_connect = on_connect
 client.on_message = on_message
 
